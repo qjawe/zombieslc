@@ -1,0 +1,30 @@
+{
+  "name": "day3",
+  "version": "1.0.0",
+  "main": "main.js",
+  "dependencies": {
+    "express": "^4.14.1",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jcawe",
+  "license": "ISC",
+  "description": "day3 lesson",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/qjawe/Full-Stack-Foundation.git"
+  },
+  "keywords": [
+    "just",
+    "day",
+    "3"
+  ],
+  "bugs": {
+    "url": "https://github.com/qjawe/Full-Stack-Foundation/issues"
+  },
+  "homepage": "https://github.com/qjawe/Full-Stack-Foundation#readme"
+}

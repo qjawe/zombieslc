@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Gallery</title>
+    <meta name="author" content="JC Awe">
+
+    <!-- default bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="mytheme.css">
+
+    <!-- theme must come after bootstrap link -->
+    <!-- try themes from: https://startbootstrap.com/-->
+    <!-- <link rel="stylesheet" type="text/css" href="theme.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="theme2.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="theme3.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="theme4.css"> -->
+
+
+
+    <!-- font awesome, should come after the theme and bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- animate.css -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/animatecss/3.5.2/animate.min.css">
+
+    <!-- HTML5 Photo Gallery -- fancybox  -->
+    <link rel="stylesheet" type="text/css" media="screen" href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/1.3.4/jquery.fancybox-1.3.4.css"/>
+
+    <!-- STYLE SECTION -- use this style for testing and development purposes -->
+    <style type="text/css">
+/*    .container{border: 9px solid green;}
+    .row{border: 9px solid red;}
+    .row [class*='col-']{border: 9px solid purple;}*/
+    /*.col-xs-12 col-sm-12 col-md-12 col-lg-12 {border: 9px solid purple;}*/
+    </style>
+
+</head>
+<body class="my-back">
+<div class="container"> <!-- all webpage design should be inside this div container -->
+<!-- ----start the coding below this line ---- -->
+
+    <!-- row 1: jumbotron -->
+    <div class="row">
+        <!-- full screen column -->
+        <div class="col-xs-12
+                    col-sm-12
+                    col-md-12
+                    col-lg-12">
+
+            <div class="jumbotron">
+                <h1 class="text-center">Photo Gallery</h1>
+            </div>
+        </div> <!-- end of column -->
+    </div> <!-- end of row 1 -->
+
+    <!-- row 2: thumnail -->
+    <div class="row">
+        <!-- column 1 -->
+        <div class="col-xs-12
+                    col-sm-3
+                    col-md-3
+                    col-lg-3">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x600" alt="">
+                <div class="caption">
+                    <p>Comment</p>
+                </div>
+            </div>
+        </div> <!-- end of column 1 -->
+
+        <!-- column 2 -->
+        <div class="col-xs-12
+                    col-sm-3
+                    col-md-3
+                    col-lg-3">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x600" alt="">
+                <div class="caption">
+                    <p>Comment</p>
+                </div>
+            </div>
+        </div> <!-- end of column 2 -->
+
+        <!-- column 3 -->
+        <div class="col-xs-12
+                    col-sm-3
+                    col-md-3
+                    col-lg-3">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x600" alt="">
+                <div class="caption">
+                    <p>Comment</p>
+                </div>
+            </div>
+        </div> <!-- end of column 3 -->
+
+                <!-- column 4 -->
+        <div class="col-xs-12
+                    col-sm-3
+                    col-md-3
+                    col-lg-3">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x600" alt="">
+                <div class="caption">
+                    <p>Comment</p>
+                </div>
+            </div>
+        </div> <!-- end of column 4 -->
+    </div> <!-- end of row 2 -->
+
+
+    <!-- gallery-wrapper STYLE SECTION  -->
+    <style type="text/css">
+
+    body {
+    	font-family: "Aller", "sans-serif";  /* just a custom font */
+    }
+
+
+    a:-webkit-any-link {
+      	text-decoration: none;	/* ignoring default link settings */
+    }
+
+
+    ul
+    {
+    	list-style-type: none;	/* hiding the bullets from ul */
+    }
+
+    .fade {
+       opacity: 0.8;		/* sets default view to a 80% opacity */
+       transition: opacity .25s ease-in-out;
+       -moz-transition: opacity .25s ease-in-out;
+       -webkit-transition: opacity .25s ease-in-out;
+    }
+
+    .fade:hover {
+          opacity: 1;	/* sets default view to a 100% opacity when on hover state */
+    }
+
+    .img-wrapper {
+    	width: 300px;
+    	height: 240px;
+    	border: 0.1em solid #ccc;
+    	border-radius: 0.4em;
+    	background-color: #f3f3f3;
+    	box-shadow: 0.1em 0.1em 0.5em -0.2em #777;
+    	margin: 1em 1em;
+    }
+
+    img {
+    	border-radius: 0.4em 0.4em 0em 0em;		/* radius should be the same as the img-wrapper */
+    }
+
+    .gallery-wrapper ul li{
+    	display: inline-block;		/* sit wrappers in rows, not column block */
+
+    }
+
+    h1 {
+    	padding-left: 14em;
+    }
+
+    h4 {							/* style the photos titles */
+    	text-align: center;
+    	font-size: 1em;
+    	margin: 0;
+    	padding: 0.5em 2em;
+    	text-transform: uppercase;
+    	font-weight: bold;
+    	color: black;
+    }
+
+    .logo {
+    	margin-left: 22em;
+    	margin-bottom: 4em;
+    }
+
+    </style>
+
+    <!-- gallery-wrapper HTML SECTION -->
+
+    <div class="gallery-wrapper">
+    <h1>Wedding Gram Gallery</h1>
+    	<ul>
+    		<li>
+    			<figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben1.jpg"><img  src="thumbnails/photobyben1t.jpg"><h4>City at Night</h4></a></figure>
+    		</li>
+
+    		<li>
+    			<figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben2.jpg"><img src="thumbnails/photobyben2t.jpg"><h4>Snow Crystal</h4></a></figure>
+    		</li>
+
+    		<li>
+    			<figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben3.jpg"><img src="thumbnails/photobyben3t.jpg"><h4>Motorcycle Boy</h4></a></figure>
+    		</li>
+    			<br>
+    		<li>
+    			<figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben4.jpg"><img src="thumbnails/photobyben4t.jpg"><h4>Horse Ride</h4></a></figure>
+    		</li>
+
+    		<li>
+    			<figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben5.jpg"><img src="thumbnails/photobyben5t.jpg"><h4>Colorful Ballons</h4></a></figure>
+    		</li>
+
+    		<li>
+    			<figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben6.jpg"><img src="thumbnails/photobyben6t.jpg"><h4>Masterpiece</h4></a></figure>
+    		</li>
+    			<br>
+    		<li>
+    			<figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben7.jpg"><img src="thumbnails/photobyben7t.jpg"><h4>Tiger Action</h4></a></figure>
+    		</li>
+
+    		<li>
+    			<figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben8.jpg"><img src="thumbnails/photobyben8t.jpg"><h4>Waterfall</h4></a></figure>
+    		</li>
+
+    		<li>
+    			<figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben9.jpg"><img src="thumbnails/photobyben9t.jpg"><h4>Red Flowers</h4></a></figure>
+    		</li>
+            <li>
+                <figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben10.jpg"><img src="thumbnails/photobyben10t.jpg"><h4>Red Flowers</h4></a></figure>
+            </li>
+            <li>
+                <figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben11.jpg"><img src="thumbnails/photobyben11t.jpg"><h4>Red Flowers</h4></a></figure>
+            </li>
+            <li>
+                <figure class="img-wrapper fade"><a class="fancybox" href="images/photobyben12.jpg"><img src="thumbnails/photobyben12t.jpg"><h4>Red Flowers</h4></a></figure>
+            </li>
+    	</ul>
+    </div>
+
+
+
+
+
+
+
+
+<!-- ----End the coding above this line ---- -->
+</div> <!-- end of container -->
+
+
+<!-- jquery -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.min.js"></script>
+
+<!-- fancybox script  -->
+<script type="text/javascript">
+    $(function($){
+        var addToAll = false;
+        var gallery = true;
+        var titlePosition = 'inside';
+        $(addToAll ? 'img' : 'img.fancybox').each(function(){
+            var $this = $(this);
+            var title = $this.attr('title');
+            var src = $this.attr('data-big') || $this.attr('src');
+            var a = $('<a href="#" class="fancybox"></a>').attr('href', src).attr('title', title);
+            $this.wrap(a);
+        });
+        if (gallery)
+            $('a.fancybox').attr('rel', 'fancyboxgallery');
+        $('a.fancybox').fancybox({
+            titlePosition: titlePosition
+        });
+    });
+    $.noConflict();
+</script>
+
+
+<!-- bootstrap js -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- wow.js -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/wow/1.1.2/wow.min.js"></script>
+<!-- command to initialize the wow.js -->
+<!-- <script src="js/wow.min.js"></script> -->
+<script>new WOW().init();</script>
+
+
+<script type="text/javascript" src="page.js"></script>
+
+
+</body>
+</html>

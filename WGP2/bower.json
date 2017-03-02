@@ -1,0 +1,23 @@
+{
+  "name": "wp2landpage",
+  "homepage": "https://github.com/qjawe/FullStackFoundation",
+  "description": "angular inline and modal image gallery",
+  "main": "main.js",
+  "authors": [
+    "qjawe <qqjawe@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.2",
+    "bootstrap": "^3.3.7",
+    "jumbotron": "*",
+    "ng-image-gallery": "^2.0.8"
+  }
+}

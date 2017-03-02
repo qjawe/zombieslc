@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TableApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>Wedding RSVP</title>
+
+		<link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css">
+
+	</head>
+	<body ng-controller="TableCtrl as tableCtrl">
+
+		<!--Start of container-->
+		<div class="container">
+
+			<h2>RSVP</h2>
+
+			<!--Form-->
+			<form name="orderForm">
+				
+				<!--Name input-->
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input id="name" class="form-control" type="text" name="name" 
+						required ng-model="tableCtrl.name">
+					<span id="helpBlock" class="help-block" ng-show="orderForm.name.$invalid">Enter your full name
+                </span>
+				</div> <!-- end of name input-->
+
+				<!--Email input-->
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input id="email" class="form-control" type="email" name="email" 
+						required ng-model="tableCtrl.email">
+					<span id="helpBlock" class="help-block" ng-show="orderForm.email.$invalid">Enter a valid email address
+                </span>
+				</div> <!-- end of email input-->
+
+				<!--Attendence input radio buttons-->
+				<div class="form-group">
+					<label for="att">Attendence</label>
+					<div class="radio">
+						<label>
+							<input type="radio" name="att" value="A" required
+								ng-model="tableCtrl.att" id="yesCheck" onclick="javascript:yesnoCheck();">
+							<code>Attending</code>
+						</label>
+						<label>
+							<input type="radio" name="att" value="NA" required
+								ng-model="tableCtrl.att" id="noCheck" onclick="javascript:yesnoCheck();">
+							<code>Not Attending</code>
+						</label>
+						<span id="helpBlock" class="help-block" ng-show="orderForm.att.$pristine">Let us know if you are able to attend our wedding
+					</span>
+					</div>
+				</div> <!-- end of attendence radio button-->
+
+				<!--Number of pax attending, appear only if selection of Attending Yes is selected-->
+				<div class="form-group" style="visibility:hidden" id="ifYes">
+					<label for="tickets">No. of tickets</label>
+					<input id="tickets" class="form-control" type="number" name="tickets" step="1"
+							min="1" max="10" required ng-model="tableCtrl.tickets">
+				</div>
+					<span id="helpBlock" class="help-block" ng-show="orderForm.tickets.$touched">Let us know how many seat(s) you need (maximum of 8)
+					</span>
+				<!-- end of number of pax input-->
+
+				<!--Submit button-->
+				<div class="form-group">
+					<button type="submit" class="btn btn-success form-control"
+						   ng-click="tableCtrl.placeOrder()" ng-disabled="orderForm.name.$invalid || orderForm.email.$invalid || orderForm.att.$invalid ">
+						<i class="fa fa-gift"></i>
+						RSVP
+					</button>
+				</div> <!-- end of submit button-->
+			</form> <!-- end of form-->
+
+		</div> <!-- end of container-->
+		
+	</body>
+
+		<script src="/libs/jquery/dist/jquery.js"></script>
+		<script src="/libs/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="/libs/angular/angular.js"></script>
+
+		<script src="indexinsert.js"></script>
+		<script type="text/javascript">
+
+				function yesnoCheck() {
+  				  if (document.getElementById('yesCheck').checked) {
+    			document.getElementById('ifYes').style.visibility = 'visible';
+   					 	}
+    			else document.getElementById('ifYes').style.visibility = 'hidden';
+				 }
+		</script>
+
+</html>

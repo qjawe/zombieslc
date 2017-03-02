@@ -1,0 +1,15 @@
+{
+  "name": "fsf",
+  "version": "1.0.0",
+  "description": "test npm init",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JC Awe",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "path": "^0.12.7"
+  }
+}

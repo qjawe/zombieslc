@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="UploadApp">
+
+<head>
+    <title>demo-multer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
+</head>
+
+<body>
+    <!-- Load the controller -->
+    <div class="container" ng-controller="UploadCtrl as uploadCtrl">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <h2>Upload File</h2>
+                <form name="UploadForm" novalidate ng-submit="uploadCtrl.upload()" autocomplete="off">
+                    <div class="form-group">
+                        <!-- Select file to upload. Single file only. Accepts only images-->
+                        <input id="file" type="file" ng-model="uploadCtrl.imgFile" ngf-select ngf-pattern="'image/*'" ngf-accept="'image/*'">
+                    </div>
+                    <div class="form-group">
+                        <!-- Thumbnail preview of image to upload. -->
+                        <img ngf-thumbnail="uploadCtrl.imgFile" width="100px" class="img-thumbnail">
+                    </div>
+                    <div class="form-group">
+                        <!-- Upload button. Click to upload images -->
+                        <button class="btn btn-default" type="submit">Upload</button>
+                    </div>
+
+                    <!-- Success and error flash messages. Logic based on status code returned after POST request -->
+                    <div class="alert" role="alert" alert-dismissable ng-show="uploadCtrl.status.code" ng-class="{'alert-success': uploadCtrl.status.code == 202, 'alert-danger': uploadCtrl.status.code == 400 }">
+                        <button class="close" data-dismiss="alert">
+                        <!-- data dismiss removes the element. This alert won't show up again before refreshing -->
+                        &times;
+                    </button> {{ uploadCtrl.status.message }}
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <h2>Upload File -S3</h2>
+                <form name="UploadForm" novalidate ng-submit="uploadCtrl.upload()" autocomplete="off">
+                    <div class="form-group">
+                        <!-- Select file to upload. Single file only. Accepts only images-->
+                        <input id="file" type="file" ng-model="uploadCtrl.imgFile" ngf-select ngf-pattern="'image/*'" ngf-accept="'image/*'">
+                    </div>
+                    <div class="form-group">
+                        <!-- Thumbnail preview of image to upload. -->
+                        <img ngf-thumbnail="uploadCtrl.imgFile" width="100px" class="img-thumbnail">
+                    </div>
+                    <div class="form-group">
+                        <!-- Upload button. Click to upload images -->
+                        <button class="btn btn-default" type="submit">Upload</button>
+                    </div>
+
+                    <!-- Success and error flash messages. Logic based on status code returned after POST request -->
+                    <div class="alert" role="alert" alert-dismissable ng-show="uploadCtrl.status.code" ng-class="{'alert-success': uploadCtrl.status.code == 202, 'alert-danger': uploadCtrl.status.code == 400 }">
+                        <button class="close" data-dismiss="alert">
+                        <!-- data dismiss removes the element. This alert won't show up again before refreshing -->
+                        &times;
+                    </button> {{ uploadCtrl.status.message }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+
+<!-- ng Angular controller js -->
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/upload/upload.controller.js"></script>
+
+</html>

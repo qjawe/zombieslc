@@ -1,0 +1,25 @@
+{
+  "name": "weddinggram",
+  "description": "",
+  "main": "main.js",
+  "authors": [
+    "h0ngh0ng <ah_hong84@hotmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.6.2",
+    "font-awesome": "^4.7.0",
+    "ng-file-upload": "^12.2.13",
+    "ng-file-upload-shim": "^12.2.13",
+    "ng-image-gallery": "^2.0.8"
+  }
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Gallery</title>
+    <meta name="author" content="JC Awe">
+
+    <!-- default bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" type="text/css" href="mytheme.css"> -->
+
+    <!-- theme must come after bootstrap link -->
+    <!-- try themes from: https://startbootstrap.com/-->
+    <!-- <link rel="stylesheet" type="text/css" href="theme.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="theme2.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="theme3.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="theme4.css"> -->
+
+
+
+    <!-- font awesome, should come after the theme and bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- animate.css -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/animatecss/3.5.2/animate.min.css">
+
+    <!-- HTML5 Photo Gallery -- fancybox  -->
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/1.3.4/jquery.fancybox-1.3.4.css"/> -->
+
+    <!-- STYLE SECTION -- use this style for testing and development purposes -->
+    <style type="text/css">
+/*    .container{border: 9px solid green;}
+    .row{border: 9px solid red;}
+    .row [class*='col-']{border: 9px solid purple;}*/
+    /*.col-xs-12 col-sm-12 col-md-12 col-lg-12 {border: 9px solid purple;}*/
+    </style>
+
+    <!-- jquery -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js"></script>
+
+
+    <!-- Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.2/angular-animate.min.js"></script>
+    <script src="https://rawgit.com/hammerjs/hammer.js/v2.0.8/hammer.min.js"></script>
+
+</head>
+
+<body ng-controller="main">
+
+    <a href="./conf.html">With conf</a><br/>
+
+    <h1><a href="https://github.com/thatisuday/ng-image-gallery" style="text-decoration:none; color:#333;">ng-image-gallery</a></h1>
+
+    <p ng-hide="counter == 0">Populating more images after {{counter}} seconds.</p>
+
+    <button ng-click="openGallery()">Open Gallery</button>
+    <button ng-click="addPhoto()">Add Photo</button>
+    <button ng-click="removePhoto()">Remove Photo</button>
+
+    <br/>
+    <br/>
+
+    <button ng-click="toggleThumbnails()">Enable/Disable Thumbnails</button>
+    <button ng-click="toggleInline()">Modal/Inline Gallery</button>
+    <button ng-click="toggleBubbles()">{{(bubbles) ? 'Switch off' : 'Switch on'}} bubbles</button>
+    <button ng-click="toggleImgBubbles()">{{(imgBubbles) ? 'Switch off' : 'Switch on'}} Image bubbles</button>
+
+    <br/>
+    <br/>
+
+    <button ng-click="closeOnBackground()">{{(bgClose) ? 'Do not close' : 'Close'}} on background click (modal gallery)</button>
+
+    <br/>
+    <br/>
+
+    Choose animation<br/>
+
+    <label ng-repeat="class in ['fade', 'fadeup', 'zoom', 'slide', 'pop', 'revolve']">
+        <input type="radio" name="imgAnim" ng-model="conf.imgAnim" ng-value="class"/> {{class}}
+    </label>
+
+
+    <br/>
+    <br/>
+    <br/>
+
+    <ng-image-gallery images="images" methods="methods" conf="conf" thumbnails="thumbnails" inline="inline" bubbles="bubbles" img-bubbles="imgBubbles" bg-close="bgClose" on-open="opened();" on-close="closed();" bg-close="false"></ng-image-gallery>
+
+    <script>
+        angular
+        .module('demo', ['thatisuday.ng-image-gallery'])
+        .controller('main', function($scope, $timeout, $interval){
+            $scope.counter = 5;
+            var counterIntvl = $interval(function(){
+                $scope.counter = $scope.counter - 1;
+                if($scope.counter == 0){
+                    $interval.cancel(counterIntvl);
+                }
+            }, 1000);
+
+            // Local images
+            $scope.images = [
+                {
+                    title : 'My first image',
+                    alt : 'photo1',
+                    url : '../demo/demo-images/1.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/1.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/1.jpg',
+                    extUrl : 'http://google.com/image/1'
+                },
+                {
+                    url : '../demo/demo-images/2.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/2.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/2.jpg',
+                },
+                {
+                    url : '../demo/demo-images/3.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/3.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/3.jpg',
+                },
+                {
+                    title : 'My fourth image',
+                    alt : 'photo4',
+                    url : '../demo/demo-images/4.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/4.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/4.jpg',
+                    extUrl : 'http://google.com/image/4'
+                },
+                {
+                    url : '../demo/demo-images/5.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/5.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/5.jpg',
+                },
+                {
+                    url : '../demo/demo-images/6.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/6.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/6.jpg',
+                },
+                {
+                    title : 'My seventh image',
+                    alt : 'photo7',
+                    url : '../demo/demo-images/7.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/7.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/7.jpg',
+                },
+                {
+                    url : '../demo/demo-images/8.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/8.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/8.jpg',
+                    extUrl : 'http://google.com/image/8'
+                },
+                {
+                    title : 'My 9th image',
+                    alt : 'photo9',
+                    url : '../demo/demo-images/9.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/9.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/9.jpg',
+                }
+            ];
+
+            $scope.moreImages = [
+                {
+                    url : '../demo/demo-images/10.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/10.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/10.jpg',
+                },
+                {
+                    url : '../demo/demo-images/11.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/11.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/11.jpg',
+                    extUrl : 'http://google.com/image/11'
+                },
+                {
+                    title : 'My twelth image',
+                    alt : 'photo12',
+                    url : '../demo/demo-images/12.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/12.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/12.jpg',
+                },
+                {
+                    url : '../demo/demo-images/13.jpg',
+                    thumbUrl : '../demo/demo-images/thumbs/13.jpg',
+                    bubbleUrl : '../demo/demo-images/bubbles/13.jpg'
+                }
+            ];
+
+            $scope.conf = {
+                imgAnim : 'fadeup'
+            };
+
+            /*****************************************************/
+
+            $timeout(function(){
+                $scope.images = $scope.images.concat($scope.moreImages);
+            }, 5000);
+
+            $scope.addPhoto = function(){
+                var n = Math.floor(Math.random() * 13) + 1;
+                $scope.images.push(
+                    {
+                        url : '../demo/demo-images/' + n + '.jpg',
+                        thumbUrl : '../demo/demo-images/thumbs/' + n + '.jpg',
+                        bubbleUrl : '../demo/demo-images/bubbles/' + n + '.jpg'
+                    }
+                );
+            }
+
+            $scope.removePhoto = function(){
+                if($scope.images.length > 1) $scope.images.pop();
+            }
+
+            // Thumbnails
+            $scope.thumbnails = true;
+            $scope.toggleThumbnails = function(){
+                $scope.thumbnails = !$scope.thumbnails;
+            }
+
+            // Inline
+            $scope.inline = false;
+            $scope.toggleInline = function(){
+                $scope.inline = !$scope.inline;
+            }
+
+            // Bubbles
+            $scope.bubbles = true;
+            $scope.toggleBubbles = function(){
+                $scope.bubbles = !$scope.bubbles;
+            }
+
+            // Image bubbles
+            $scope.imgBubbles = false;
+            $scope.toggleImgBubbles = function(){
+                $scope.imgBubbles = !$scope.imgBubbles;
+            }
+
+            // Background close
+            $scope.bgClose = false;
+            $scope.closeOnBackground = function(){
+                $scope.bgClose = !$scope.bgClose;
+            }
+
+            // Gallery methods gateway
+            $scope.methods = {};
+            $scope.openGallery = function(){
+                $scope.methods.open();
+            };
+
+            // Gallery callbacks
+            $scope.opened = function(){
+                console.info('Gallery opened!');
+            }
+
+            $scope.closed = function(){
+                console.warn('Gallery closed!');
+            }
+        })
+        ;
+    </script>
+
+
+<!-- jquery -->
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js"></script> -->
+
+
+<!-- Dependencies -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.2/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.2/angular-animate.min.js"></script>
+<script src="https://rawgit.com/hammerjs/hammer.js/v2.0.8/hammer.min.js"></script> -->
+
+<!-- Module files-->
+<script src="./dist/ng-image-gallery.min.js"></script>
+<link href="./dist/ng-image-gallery.min.css" rel="stylesheet"/>
+
+<!-- fancybox script  -->
+<!-- <script type="text/javascript">
+    $(function($){
+        var addToAll = false;
+        var gallery = true;
+        var titlePosition = 'inside';
+        $(addToAll ? 'img' : 'img.fancybox').each(function(){
+            var $this = $(this);
+            var title = $this.attr('title');
+            var src = $this.attr('data-big') || $this.attr('src');
+            var a = $('<a href="#" class="fancybox"></a>').attr('href', src).attr('title', title);
+            $this.wrap(a);
+        });
+        if (gallery)
+            $('a.fancybox').attr('rel', 'fancyboxgallery');
+        $('a.fancybox').fancybox({
+            titlePosition: titlePosition
+        });
+    });
+    $.noConflict();
+</script> -->
+
+
+<!-- bootstrap js -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- wow.js -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/wow/1.1.2/wow.min.js"></script>
+<!-- command to initialize the wow.js -->
+<!-- <script src="js/wow.min.js"></script> -->
+<script>new WOW().init();</script>
+
+
+<!-- <script type="text/javascript" src="page.js"></script> -->
+
+
+</body>
+</html>

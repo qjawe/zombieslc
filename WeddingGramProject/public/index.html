@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WedApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Wedding Gram</title>
+
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css">
+	    
+</head>
+<body ng-controller="WedCtrl as _wedCtrl">
+
+    <!-- nav bar sits above, it's a container by itself -->
+    <!-- to disable sticking bar to screen, remove class: navbar-fixed-top -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!-- hamburger button. do not touch! -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- HOME BUTTON: REPLACE href="#" with your landing page url -->
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!-- THIS UL HANDLES OUR LINKS -->
+          <ul class="nav navbar-nav navbar-right">
+            <li> <a href="/album/gallery.html" target="_blank"> <i class="fa fa-file-image-o fa-3x"></i> </li> </a>
+            <li> <a href="indexinsert.html" target="_blank"> <i class="fa fa-envelope-open-o fa-3x"></i></li> </a>
+            <li> <a href="tables.html" target="_blank"> <i class="fa fa-list fa-3x"></i></li> </a>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- everything will be in this container -->
+<div class="container">
+    
+    <!-- row 1: jumbotron -->
+    <div class="row">    
+        <!-- full screen column -->
+        <div class="col-xs-12 
+                    col-sm-12
+                    col-md-12
+                    col-lg-12">
+
+            <div class="jumbotron">
+                <h1 class="text-right">Happily Ever After....</h1>
+                <h3 class="text-right">AI Plus Plus</h3>
+            </div>
+        </div> <!-- end of column -->
+    </div> <!-- end of row 1 -->
+
+    <!-- row 2: thumnail -->
+    <div class="row">
+        <!-- column 1 -->
+        <div class="col-xs-12 
+                    col-sm-3
+                    col-md-3
+                    col-lg-3">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x600" alt="">
+                <div class="caption">
+                    <p>Comment</p>
+                </div>
+            </div>
+        </div> <!-- end of column 1 -->
+
+        <!-- column 2 -->
+        <div class="col-xs-12 
+                    col-sm-3
+                    col-md-3
+                    col-lg-3">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x600" alt="">
+                <div class="caption">
+                    <p>Comment</p>
+                </div>
+            </div>
+        </div> <!-- end of column 2 -->
+
+        <!-- column 3 -->
+        <div class="col-xs-12 
+                    col-sm-3
+                    col-md-3
+                    col-lg-3">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x600" alt="">
+                <div class="caption">
+                    <p>Comment</p>
+                </div>
+            </div>
+        </div> <!-- end of column 3 -->
+
+                <!-- column 4 -->
+        <div class="col-xs-12 
+                    col-sm-3
+                    col-md-3
+                    col-lg-3">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x600" alt="">
+                <div class="caption">
+                    <p>Comment</p>
+                </div>
+            </div>
+        </div> <!-- end of column 4 -->
+    </div> <!-- end of row 2 -->
+
+    <!-- row 3: Click to see gallery -->
+	<div class="row">
+		<div class="col-xs-12 
+                    col-sm-12
+                    col-md-12
+                    col-lg-12
+                    text-center">
+            <p><a class="btn btn-info" href="/gallery/gallery.html" role="button" target="_blank">Photo Gallery</a></p>
+        </div> <!-- end of submit button -->
+	</div> <!-- end of row 3 -->
+
+    <!-- row 4: Upload photo form -->
+    <div class="row">
+    <!-- form column -->
+        <div class="col-xs-12 
+                    col-sm-5
+                    col-md-5
+                    col-lg-5">
+        <!-- panel start -->
+	        <div class="panel panel-default">
+	            <div class="panel-body">
+	                <form action="https://script.google.com/macros/s/AKfycbz64n2rnFiaV8jb-kbyqqV07vHoWEDtBYcKsoGv8vvOzvBlFBtC/exec" method="post" name="photoForm" ng-submit="_wedCtrl.photoSubmit()" target="_blank"
+                        ng-submit="_wedCtrl.photoSubmit()" novalidate>
+	               		<legend>Upload Photos</legend>
+
+	                    <!-- photo upload box -->
+	                    <div class="form-group">
+	                        <label for="photo-id">Upload Image</label>
+	                        <!--<input type="text" class="form-control" id="photo-id" name="PHOTO" ng-model="_wedCtrl.photo" required>-->
+                             <input type="file" class="form-control" id="photo-id" name="PHOTO" ng-model="_wedCtrl.photo" required> 
+	                        <!--<p><a class="btn btn-primary" href="#" role="button" target="_blank">Open Folder</a></p>-->
+	                        <div class="alert alert-info hidden" role="alert" id="photo-missing">No photo uploaded</div>
+	                    </div>
+
+	                    <!-- comment input box -->
+	                    <div class="form-group">
+	                        <label for="comment-id">Comment</label>
+                            <textarea class="form-control" name="COMMENT" id="comment-id" ng-model="_wedCtrl.phComment" rows="4"></textarea>
+	                    </div>
+
+	                    <!-- submit button -->
+	                    <div class="form-group">
+	                        <label>
+	                        <input type="submit" class="btn btn-info" value="Submit" id="submit-id">
+	                        </label>
+	                    </div> <!-- end of submit button -->
+	                </form>   
+	            </div> <!-- end of panel-body -->
+	        </div> <!-- end of panel -->
+        </div> <!-- end of form column -->
+
+        <!-- Story of couple text column -->
+        <div class="col-xs-12
+                    col-sm-6 col-sm-offset-1
+                    col-md-6 col-md-offset-1
+                    col-lg-6 col-lg-offset-1">
+            <h1 class="text-center">Story of the couple</h1>
+            <hr>
+            <p class="text-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div> <!-- end of Story of couple text column -->
+    </div> <!-- end of row 4 -->
+
+    <!-- row 5: embed video -->
+    <div class="row">
+        <!-- video column -->
+        <div class="col-xs-12 
+                    col-sm-10 col-sm-offset-1
+                    col-md-10 col-md-offset-1
+                    col-lg-10 col-lg-offset-1">
+            <!-- responsive video -->
+            <h3>Wedding Montage</h3>
+            <div class="embed-responsive embed-responsive-16by9">
+                <h1>youtube montage here!!</h1>
+                <!--<iframe class="embed-responsive item" src="https://www.youtube.com/embed/H0AUe06UwtU"></iframe>-->
+             </div>
+        </div> <!-- end of video column -->
+    </div>  <!--end of row 5-->
+<br>
+
+
+    <!-- row 6: 3 panels of event information -->
+    <div class="row">
+        <!-- information column -->
+        <div class="col-xs-12
+                    col-sm-4
+                    col-md-4
+                    col-lg-4">
+            <h3>Wedding Date</h3>
+            <div>
+                <table class="table table-hover">
+                    <tr>
+                        <th>Information</th>
+                        <th> </th>
+                    </tr>
+
+                    <tr>
+                        <td>Event Address</td>
+                        <td>79 Ayer Rajah Crescent</td>
+                    </tr>
+
+                    <tr>
+                        <td>Event Timing</td>
+                        <td>11am - 4pm</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wedding Lunch</td>
+                        <td>12noon - 4pm</td>
+                    </tr>
+                </table>
+            </div>
+        </div> <!-- end of information column -->
+        
+        <!-- wedding location map column -->
+        <div class="col-xs-12
+                    col-sm-4
+                    col-md-4
+                    col-lg-4
+                    ">
+            <div class="embed-responsive embed-responsive-4by3">
+                <h1>google map here!!</h1>
+                <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7945178937484!2d103.78528081475395!3d1.2980111990532837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1a4fe45692e5%3A0xc90d9ee9e29fd8c2!2s79+Ayer+Rajah+Crescent%2C+Block+79%2C+Singapore+139955!5e0!3m2!1sen!2ssg!4v1484793848708" class="responsive-embed-item"></iframe>-->
+            </div>
+        </div> <!-- end of map column -->
+
+        <!-- Contact Bride and Groom -->
+        <div class="col-xs-12
+                    col-sm-4
+                    col-md-4
+                    col-lg-4
+                    ">
+                    <h3>Contact us</h3>
+            <div class="list-group">
+                <!-- phone number -->
+                <a href="123456789" class="list-group-item">
+                    <i class="fa fa-phone fa-fw"></i> 
+                    +65 123 456 789
+                </a>
+                <!-- email address -->
+                <a href="OurWedding@weddinggram.com" class="list-group-item">
+                    <i class="fa fa-envelope fa-fw"></i> 
+                    OurWedding@weddinggram.com
+                </a>
+                <!-- social media -->
+                <a href="https://en-gb.facebook.com/login/" class="list-group-item">
+                    <i class="fa fa-facebook fa-fw"></i> 
+                    Our Wedding Facebook Group
+                </a>
+                <br>
+                <p><a class="btn btn-info" href="/table/tables.html" role="button" target="_blank">Guest List</a></p>
+                <p><a class="btn btn-info" href="/rsvp/indexinsert.html" role="button" target="_blank">RSVP</a></p>
+            </div>
+        </div> <!-- Contact Bride and Groom column -->
+    </div> <!-- end of row 6 -->
+
+</div> <!-- end of container -->
+</body>
+
+<script src="/libs/jquery/dist/jquery.js"></script>
+<script src="/libs/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/libs/angular/angular.js"></script>
+
+<script src="/services/wedaddsvc.js"></script>
+<script src="/index.js"></script>
+
+</html>

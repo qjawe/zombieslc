@@ -1,0 +1,22 @@
+{
+  "name": "wgp2test",
+  "description": "",
+  "main": "main.js",
+  "authors": [
+    "qjawe <qqjawe@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/qjawe/FullStackFoundation",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.2",
+    "bootstrap": "^3.3.7",
+    "jumbotron": "*"
+  }
+}

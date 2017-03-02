@@ -1,0 +1,39 @@
+<!--TODO: Send and retrieve information from server via Angular $http; modularize via services-->
+
+<div ng-controller="SearchCtrl as ctrl">
+    <div class="page-header">
+        <h1>Employee Management System
+            <small>Search</small>
+        </h1>
+    </div>
+    <br/>
+
+    <form name="queryForm" class="form-inline">
+        <div class="form-group">
+            <input id="empName" class="form-control" type="text"
+                   name="empName"
+                   ng-model = "ctrl.queryString"
+                   size="50"
+                   placeholder="Enter employee info">
+        </div>
+    </form>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Employee No</th>
+            <th>Employee First Name</th>
+            <th>Employee Last Name</th>
+            <th>Employee Phone Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="animation" ng-repeat="emp in ctrl.employees | filter:ctrl.queryString">
+            <td>{{emp.empNo }}</td>
+            <td>{{ emp.empFirstName }}</td>
+            <td>{{ emp.empLastName }}</td>
+            <td>{{ emp.empPhoneNumber }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

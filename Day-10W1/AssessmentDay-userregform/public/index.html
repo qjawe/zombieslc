@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="VFormApp">
+                      <!-- ng-app="RegfApp" -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="You have just completed the first 10 days of your 40 days journey, now is the time to test out your new skills!">
+    <meta name="author" content="JC Awe">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>Assessment Instructions - 17th Feb 2017</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bower/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="/bower/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap core CSS - Themes -->
+    <link href="/bower/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+
+    <!-- loading style CSS -->
+    <link href="/style.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <!--<link href="bower/jumbotron/.css" rel="stylesheet">-->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </head>
+
+  <body ng-controller="vformctrl as vfcontroller">
+
+
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <a class="navbar-brand" href="#">Day 10</a>
+      <ul class="nav nav-pills">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://qjawe.co/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://jcawe.co/">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>First Assessment</h1>
+        <p>You have just completed the first 10 days of your 40 days journey, now is the time to test out your new skills!</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Create Now »</a></p>
+      </div>
+    </div>
+    <div class="col-xs-12">
+
+
+      <!-- Email, Password, Name -->
+    <div class="wrapper">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Sign In</h2>
+        <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+        <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+        <input type="text" class="form-control" name="username" placeholder="Full Name" required="" autofocus="" />
+        <label class="checkbox">
+
+        <!-- Male or Female select buttons - blue colour style on css -->
+        <div class="btn-group btn-group-horizontal" data-toggle="buttons">
+          <label class="btn active">
+            <input type="radio" name='gender1' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  Male</span>
+          </label>
+          <label class="btn">
+            <input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Female</span>
+          </label>
+        </div>
+        <!-- Male or Female select buttons - blue colour style on css -->
+        <!-- Date of Birth -->
+        <div class="well">
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <input type="date" class="form-control" id="exampleInputDOB01" placeholder="Date of Birth">
+            </div>
+        </div>
+        <!-- Date of Birth -->
+        <!-- Address and Country mod form -->
+          <div class="row">
+
+              <form class="form-horizontal" role="form">
+                <fieldset>
+
+                  <!-- Form Name -->
+                  <legend>Address Details</legend>
+
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+                    <div class="col-sm-10">
+                      <input type="text" placeholder="Address Line 1" class="form-control">
+                    </div>
+                  </div>
+
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+                    <div class="col-sm-10">
+                      <input type="text" placeholder="Address Line 2" class="form-control">
+                    </div>
+                  </div>
+
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput">City</label>
+                    <div class="col-sm-10">
+                      <input type="text" placeholder="City" class="form-control">
+                    </div>
+                  </div>
+
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput">State</label>
+                    <div class="col-sm-4">
+                      <input type="text" placeholder="State" class="form-control">
+                    </div>
+
+                    <label class="col-sm-2 control-label" for="textinput">Postcode</label>
+                    <div class="col-sm-4">
+                      <input type="text" placeholder="Post Code" class="form-control">
+                    </div>
+                  </div>
+
+
+
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="textinput">Country</label>
+                    <div class="col-sm-10">
+                      <input type="text" placeholder="Country" class="form-control">
+                    </div>
+                  </div>
+
+                </fieldset>
+              </form>
+
+        </div><!-- /.row -->
+        <!-- Address and Country mod form -->
+        <!-- Remember Me and Login Button -->
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Remember me
+              </label>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+      </form>
+    </div>
+        <!-- Remember Me and Login Button -->
+
+
+
+
+
+
+    </div> <!-- /container -->
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Assessment Test</h2>
+          <p>This is a assessment test and eveluation yourself what had you leared and covered for the past 10 days / 2 weeks of learing the <a href="https://www.iss.nus.edu.sg/executive-education/course/detail/full-stack-foundation-/">Full Stack Foundation</a> at <a href="https://www.iss.nus.edu.sg/">NUS ISS</a> <a href="http://stackup.sg/">StackUp.sg</a></p>
+          <p><a class="btn btn-secondary" href="https://github.com/qjawe/FullStackFoundation/tree/master/Day-10W1/AssessmentDay-userregform" role="button">Further details »</a></p>
+
+        </div>
+      </div>
+
+
+      <!-- This is a angularJS syntax to show if the angular v1.x.x is working on the client end / Chrome or Firefox Browsers!! -->
+      <!-- If is working it should show number "3" on the Browsers -->
+      <p>This is a angularJS Test script</p>
+      <p>1 + 2 = {{ 1 + 2 }}</p>
+      <!-- This is a angularJS syntax to show if the angular v1.x.x is working on the client end / Chrome or Firefox Browsers!! -->
+
+      <hr>
+
+      <footer>
+        <p>© NUS ISS StackUp.sg 2017</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bower/jquery/jquery.js"></script>
+    <script src="bower/jumbotron/jumbotron.js"></script>
+
+    <!-- Install AngularJS in bower_components/angular/ -->
+    <script src="bower/angular/angular.js"></script>
+
+    <!-- AngularJS Custom Controller -->
+    <script src="app.js"></script>
+    <script src="vfapp.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Install hammer.js for touchscreen -->
+    <script src="http://hammerjs.github.io/dist/hammer.min.js" charset="utf-8"></script>
+
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ViewOrderApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>View Orders</title>
+
+		<link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css">
+
+		<script src="/libs/jquery/dist/jquery.js"></script>
+		<script src="/libs/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="/libs/angular/angular.js"></script>
+		<script src="/libs/angular-animate/angular-animate.js"></script>
+
+		<script src="/orders.js"></script>
+		<script src="/flowers.js"></script>
+	</head>
+	<body>
+
+		<div class="container" ng-controller="ViewOrderCtrl as viewOrderCtrl">
+
+			<h2>Pending Orders</h2>
+
+			<div class="row">
+				<div class="col-md-offset-8 col-md-4">
+					<button class="btn btn-warning" type="button" ng-click="viewOrderCtrl.getOrders()">
+						<i class="fa fa-refresh fa-spin"></i>
+						Refresh
+					</button>
+				</div>
+			</div>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td><code>From</code></td>
+						<td><code>To</code></td>
+						<td><code>Flower</code></td>
+						<td><code>Colours</code></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="o in viewOrderCtrl.orders">
+						<td>{{ o.from }}</td>
+						<td>{{ o.to }}</td>
+						<td>{{ o.flower }}</td>
+						<td>{{ o.colours }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</body>
+</html>

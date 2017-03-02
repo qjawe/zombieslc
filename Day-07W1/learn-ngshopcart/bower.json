@@ -1,0 +1,23 @@
+{
+  "name": "day7",
+  "description": "learn ngjs",
+  "main": "main.js",
+  "authors": [
+    "jcawe"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/qjawe/FullStackFoundation",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.6.2",
+    "animate.css": "^3.5.2",
+    "bootstrap": "^3.3.7"
+  }
+}
