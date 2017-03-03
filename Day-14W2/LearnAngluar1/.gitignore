@@ -1,7 +1,0 @@
-Day-02/node_modules/
-test/
-**/node_modules
-**/bower_components
-.idea
-client/bower_components
-node_modules
